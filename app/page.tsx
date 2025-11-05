@@ -1,4 +1,4 @@
-import Filter from "@/components/filter";
+import DashboardFilter from "@/components/dashboard-filter";
 import IncidentStats from "@/components/incident-stats";
 import PageHeader from "@/components/page-header";
 
@@ -7,7 +7,7 @@ export default async function OperationalResiliencePage() {
     <>
       <PageHeader breadcrumb={[{ title: "Dashboard" }]} />
       <div className="flex flex-col space-y-4">
-        <Filter />
+        <DashboardFilter />
         <IncidentStats />
       </div>
     </>
