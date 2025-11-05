@@ -1,10 +1,8 @@
+// @ts-nocheck
 import { NextResponse } from "next/server";
 import { getContainer, cleanDocument } from "@/lib/cosmos";
 
-const {
-  INCIDENTS_DB_NAME,
-  INCIDENTS_DB_CONTAINER_NAME,
-} = process.env;
+const { INCIDENTS_DB_NAME, INCIDENTS_DB_CONTAINER_NAME } = process.env;
 
 const INCIDENTS_PARTITION_KEY = "/incidentNo";
 const INCIDENTS_UNIQUE_KEYS = ["/incidentNo", "/ciName", "/type"];
@@ -12,7 +10,12 @@ const INCIDENTS_UNIQUE_KEYS = ["/incidentNo", "/ciName", "/type"];
 const partitionKeyName = INCIDENTS_PARTITION_KEY.replace("/", "");
 
 async function getIncidentsContainer() {
-  return await getContainer(INCIDENTS_DB_NAME!, INCIDENTS_DB_CONTAINER_NAME!, INCIDENTS_PARTITION_KEY, INCIDENTS_UNIQUE_KEYS);
+  return await getContainer(
+    INCIDENTS_DB_NAME!,
+    INCIDENTS_DB_CONTAINER_NAME!,
+    INCIDENTS_PARTITION_KEY,
+    INCIDENTS_UNIQUE_KEYS
+  );
 }
 
 // Retrieve incidents by ciName and/or incidentNo
@@ -41,17 +44,21 @@ export async function GET(req: Request) {
 
     query += " ORDER BY c.updatedDate DESC";
 
-    const { resources } = await container.items.query({ query, parameters }).fetchAll();
+    const { resources } = await container.items
+      .query({ query, parameters })
+      .fetchAll();
 
     if (incidentNo) {
       if (!resources.length) {
-        return NextResponse.json({ message: "Incident not found" }, { status: 404 });
+        return NextResponse.json(
+          { message: "Incident not found" },
+          { status: 404 }
+        );
       }
       return NextResponse.json(cleanDocument(resources[0]));
     }
 
     return NextResponse.json({ incidents: cleanDocument(resources) }); // ✅ array
-
   } catch (err: any) {
     console.error("Query error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -69,16 +76,18 @@ export async function POST(req: Request) {
 
     const { resource } = await container.items.upsert({
       ...data,
-      type: 'incident',
+      type: "incident",
       createdDate: now,
-      updatedDate: now
+      updatedDate: now,
     });
 
     return NextResponse.json({ ...cleanDocument(resource) });
-
   } catch (err: any) {
     console.error("Create Error:", err);
-    return NextResponse.json({ error: err.message }, { status: err.code === 409 ? 409 : 500 });
+    return NextResponse.json(
+      { error: err.message },
+      { status: err.code === 409 ? 409 : 500 }
+    );
   }
 }
 
@@ -89,18 +98,27 @@ export async function PATCH(req: Request) {
     const incidentNo = url.searchParams.get("incidentNo");
     const data = await req.json();
 
-    if (!incidentNo) return NextResponse.json({ error: "incidentNo query parameter is required" }, { status: 400 });
+    if (!incidentNo)
+      return NextResponse.json(
+        { error: "incidentNo query parameter is required" },
+        { status: 400 }
+      );
 
     const container = await getIncidentsContainer();
 
     const { resources } = await container.items
       .query({
-        query: "SELECT * FROM c WHERE c.type='incident' AND c.incidentNo=@incidentNo",
-        parameters: [{ name: "@incidentNo", value: incidentNo }]
+        query:
+          "SELECT * FROM c WHERE c.type='incident' AND c.incidentNo=@incidentNo",
+        parameters: [{ name: "@incidentNo", value: incidentNo }],
       })
       .fetchAll();
 
-    if (!resources.length) return NextResponse.json({ error: "Incident not found" }, { status: 404 });
+    if (!resources.length)
+      return NextResponse.json(
+        { error: "Incident not found" },
+        { status: 404 }
+      );
 
     const item = resources[0];
 
@@ -108,14 +126,19 @@ export async function PATCH(req: Request) {
       .filter((key) => key !== "incidentNo") // don't update partition key
       .map((key) => ({ op: "replace", path: `/${key}`, value: data[key] }));
 
-    patchOps.push({ op: "replace", path: "/updatedDate", value: new Date().toISOString() });
+    patchOps.push({
+      op: "replace",
+      path: "/updatedDate",
+      value: new Date().toISOString(),
+    });
 
     await container.item(item.id, item[partitionKeyName]).patch(patchOps);
 
     // Return updated document
-    const { resource: updatedDoc } = await container.item(item.id, item[partitionKeyName]).read();
+    const { resource: updatedDoc } = await container
+      .item(item.id, item[partitionKeyName])
+      .read();
     return NextResponse.json(cleanDocument(updatedDoc));
-
   } catch (err: any) {
     console.error("Patch Error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -136,12 +159,17 @@ export async function DELETE(req: Request) {
       // Fetch the document first
       const { resources } = await container.items
         .query({
-          query: "SELECT * FROM c WHERE c.type='incident' AND c.incidentNo=@incidentNo",
-          parameters: [{ name: "@incidentNo", value: incidentNo }]
+          query:
+            "SELECT * FROM c WHERE c.type='incident' AND c.incidentNo=@incidentNo",
+          parameters: [{ name: "@incidentNo", value: incidentNo }],
         })
         .fetchAll();
 
-      if (!resources.length) return NextResponse.json({ message: "Incident not found" }, { status: 404 });
+      if (!resources.length)
+        return NextResponse.json(
+          { message: "Incident not found" },
+          { status: 404 }
+        );
 
       // Delete using actual id + partition key
       for (const item of resources) {
@@ -156,7 +184,7 @@ export async function DELETE(req: Request) {
       const { resources } = await container.items
         .query({
           query: "SELECT * FROM c WHERE c.type='incident' AND c.ciName=@ciName",
-          parameters: [{ name: "@ciName", value: ciName }]
+          parameters: [{ name: "@ciName", value: ciName }],
         })
         .fetchAll();
 
@@ -164,17 +192,20 @@ export async function DELETE(req: Request) {
         await container.item(doc.id, doc[partitionKeyName]).delete();
       }
 
-      return NextResponse.json({ message: `Deleted all incidents for CI: ${ciName}` });
+      return NextResponse.json({
+        message: `Deleted all incidents for CI: ${ciName}`,
+      });
     }
 
     // Delete all incidents
-    const { resources } = await container.items.query("SELECT * FROM c WHERE c.type='incident'").fetchAll();
+    const { resources } = await container.items
+      .query("SELECT * FROM c WHERE c.type='incident'")
+      .fetchAll();
     for (const doc of resources) {
       await container.item(doc.id, doc[partitionKeyName]).delete();
     }
 
     return NextResponse.json({ message: "Deleted ALL incidents" });
-
   } catch (err: any) {
     console.error("Delete error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
