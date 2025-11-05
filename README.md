@@ -85,11 +85,19 @@ This project uses Azure AI capabilities for model inference, embeddings, semanti
 - Azure Key Vault — store API keys and secrets securely
 - Azure Cosmos DB or Azure SQL — for structured persistence and metadata associated with incidents
 
+### Agent Orchestration & Architecture
+- **LangGraph-based Workflow**: Implements a sophisticated agent orchestration system using LangGraph for complex incident analysis and response workflows
+- **Streaming Response Architecture**: Real-time streaming of agent responses and intermediate reasoning steps
+- **Multi-Agent Communication**: Coordinated communication between specialized agents (Analysis, Response, Risk Assessment)
+- **State Management**: Persistent state tracking across agent interactions using LangGraph's state management
+
 ### Typical architecture & patterns
-- Use embeddings + vector search (Cognitive Search or a vector DB) for retrieval-augmented generation (RAG).
-- Keep the retrieval layer stateless and store only metadata + vectors in the vector store.
-- Proxy model calls through server-side API routes (Next.js API routes) so keys are never exposed in the browser.
-- Use short-term caching for repeated prompts and limit token usage per request to control cost and latency.
+- Use embeddings + vector search (Cognitive Search or a vector DB) for retrieval-augmented generation (RAG)
+- Keep the retrieval layer stateless and store only metadata + vectors in the vector store
+- Proxy model calls through server-side API routes (Next.js API routes) so keys are never exposed in the browser
+- Use short-term caching for repeated prompts and limit token usage per request to control cost and latency
+- Implement agent workflows using LangGraph for complex multi-step reasoning tasks
+- Stream intermediate results and agent thoughts for better user experience and debugging
 
 ### Environment variables (suggested)
 Add these to your `.env.local` (names are examples — align with `.env.example`):
@@ -126,14 +134,30 @@ NEXT_PUBLIC_APP_INSIGHTS_KEY=...
 - Emit telemetry (requests, latency, token counts) to App Insights or another APM for observability.
 
 ### Development tips
-- For local development, use a small testing model or mocked responses to avoid incurring costs.
-- Keep prompts and context windows small; use chunking & selective retrieval for long documents.
-- Include unit tests for prompt construction and integration tests for the retrieval pipeline.
+- For local development, use a small testing model or mocked responses to avoid incurring costs
+- Keep prompts and context windows small; use chunking & selective retrieval for long documents
+- Include unit tests for prompt construction and integration tests for the retrieval pipeline
+- Use the `/api/v1/twinsightai/agents` endpoint for complex workflows requiring multi-agent coordination
+- Test agent workflows with simple scenarios first, then gradually increase complexity
+- Monitor agent execution graphs for bottlenecks and optimization opportunities
+- Implement graceful fallbacks when specific agents in the workflow fail
+
+### API Reference
+
+#### Agent Orchestration Endpoints
+- `POST /api/v1/twinsightai/agents`
+  - Handles complex incident analysis workflows
+  - Streams real-time agent responses and reasoning
+  - Expects: `{ incidentNo: string, incidentTitle: string }`
+  - Returns: Streaming response of agent actions and outputs
 
 ### Further recommendations
-- Add a short diagram (ASCII or image in `public/`) showing how the frontend, API routes, vector store, and Azure AI services interact.
-- Add a `docs/ai.md` or an expanded section in the README that documents prompt designs, embedding strategy, and any model/version decisions.
-- Consider adding a cost-control README section detailing expected billable operations and how to switch to cheaper models for dev.
+- Add a short diagram (ASCII or image in `public/`) showing how the frontend, API routes, vector store, and Azure AI services interact
+- Add a `docs/ai.md` or an expanded section in the README that documents prompt designs, embedding strategy, and agent workflows
+- Consider adding a cost-control README section detailing expected billable operations and how to switch to cheaper models for dev
+- Document the agent interaction patterns and typical workflow sequences
+- Add examples of successful agent conversations and their outcomes
+- Include troubleshooting guides for common agent workflow issues
 
 ## 🔐 Security
 
