@@ -1,6 +1,6 @@
-# TwinsightAI
+# TwinSight AI
 
-TwinsightAI is an advanced AI-powered platform designed to enhance operational resilience and incident management through intelligent analysis and recommendations.
+TwinSight AI is an advanced AI-powered platform designed to enhance operational resilience and incident management through intelligent analysis and recommendations.
 
 ## 🌟 Features
 
@@ -30,8 +30,6 @@ cd twinsight-ai
 2. Install dependencies
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Set up environment variables
@@ -42,8 +40,6 @@ cp .env.example .env.local
 4. Run the development server
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 The application will be available at `http://localhost:3000`
@@ -52,20 +48,20 @@ The application will be available at `http://localhost:3000`
 
 ```
 twinsight-ai/
-├── app/                    # Next.js app directory
-│   ├── api/               # API routes
-│   ├── ask-twinsight/     # AI chat interface
-│   ├── change-risk-advisor/ # Change risk assessment
-│   └── operational-resilience/ # Operational dashboard
-├── components/            # Reusable React components
-│   ├── ai-elements/      # AI-specific UI components
-│   ├── charts/          # Data visualization components
-│   ├── filter/          # Filter components
-│   └── ui/              # Base UI components
-├── config/              # Configuration files
-├── hooks/              # Custom React hooks
-├── lib/               # Utility functions and libraries
-└── public/            # Static assets
+├── app/                         # Next.js app directory
+│   ├── api/                     # API routes
+│   ├── ask-twinsight/           # AI chat interface
+│   ├── change-risk-advisor/     # Change risk assessment
+│   └── operational-resilience/  # Operational dashboard
+├── components/                  # Reusable React components
+│   ├── ai-elements/             # AI-specific UI components
+│   ├── charts/                  # Data visualization components
+│   ├── filter/                  # Filter components
+│   └── ui/                      # Base UI components
+├── config/                      # Configuration files
+├── hooks/                       # Custom React hooks
+├── lib/                         # Utility functions and libraries
+└── public/                      # Static assets
 ```
 
 ## 🛠️ Technology Stack
@@ -177,8 +173,8 @@ This project is proprietary software. All rights reserved.
 
 ## 👥 Team
 
-- Owner: Team TwinSight-AI
-- Project: AI-OLYMPIAD
+- Owner: Team TwinSight AI
+- Project: AI Olympiad
 
 ## 📞 Support
 
