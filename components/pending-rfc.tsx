@@ -43,7 +43,9 @@ export function PendingRFC() {
             </ItemContent>
             <ItemActions>
               <ButtonGroup>
-                <Button variant="outline">Approve</Button>
+                <Button className="bg-green-700 text-white hover:bg-[#1800ad]">
+                  Approve
+                </Button>
                 <Button variant="destructive">Reject</Button>
               </ButtonGroup>
             </ItemActions>
