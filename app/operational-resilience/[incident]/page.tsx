@@ -40,6 +40,7 @@ export default async function IncidentDetailsPage({
         <IncidentHeader incident={incidentDetailsData} />
         <AgentFeedbackList
           recommendations={incidentRecommendationData?.recommendations || []}
+          suggestion={incidentDetailsData?.recommendationSummary}
         />
       </div>
     </>
