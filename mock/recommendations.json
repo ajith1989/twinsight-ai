@@ -1,0 +1,24 @@
+[
+  {
+    "incidentNo": "INC-001",
+    "agentId": "TELEMETRY_AGENT_1",
+    "agentType": "TELEMETRY_AGENT",
+    "recommendation": "Telemetry Recommendation 1",
+    "status": "DONE",
+    "type": "recommendation",
+    "createdDate": "2025-11-04T00:22:29.704Z",
+    "updatedDate": "2025-11-04T00:22:29.704Z",
+    "id": "e8432cfb-6050-4c80-ac76-46f0a53010c5"
+  },
+  {
+    "incidentNo": "INC-001",
+    "agentId": "TELEMETRY_AGENT_2",
+    "agentType": "TELEMETRY_AGENT",
+    "recommendation": "Telemetry Recommendation 2",
+    "status": "DONE",
+    "type": "recommendation",
+    "createdDate": "2025-11-04T00:22:38.397Z",
+    "updatedDate": "2025-11-04T00:22:38.397Z",
+    "id": "ca5e32b6-6566-4db3-a282-017b1cd614a8"
+  }
+]

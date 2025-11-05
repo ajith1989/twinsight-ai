@@ -1,0 +1,20 @@
+{
+    "incidentNo": "INC-001",
+    "incidentTitle": "Database connection timeout",
+    "incidentPriority": "P1",
+    "incidentStatus": "Open",
+    "incidentAssignee": "Alice Johnson",
+    "incidentCreatedDate": "2025-10-29T07:30:15.123Z",
+    "ciName": "DEMO_APP_1",
+    "ciDescription": "Demo application 1",
+    "incidentClosureNotes": "Closure notes 1",
+    "incidentClosureDate": "2025-11-03T07:30:15.123Z",
+    "recommendationSummary": "Recommendation Summary 1",
+    "recommendationStatus": "DONE",
+    "recommendationUpdatedDate": "2025-11-01T08:05:00.000Z",
+    "recommendationAccuracy": "85%",
+    "type": "incident",
+    "createdDate": "2025-11-04T00:20:17.106Z",
+    "updatedDate": "2025-11-04T00:21:57.194Z",
+    "id": "a01b1637-51fe-4503-928e-a56af1ee90e9"
+}
