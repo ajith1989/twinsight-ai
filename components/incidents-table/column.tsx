@@ -63,8 +63,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     accessorKey: "incidentPriority",
     header: "Severity",
     cell: ({ row }) => {
-      const incidentPriority = row.getValue<string>("incidentPriority") || "";
+      const incidentPriority = (
+        row.getValue<string>("incidentPriority") || ""
+      ).toUpperCase();
       const incidentNo = row.getValue<string>("incidentNo") || "";
+
+      // Determine color based on priority
+      let colorClass = "bg-gray-500";
+      if (incidentPriority === "P1") colorClass = "bg-red-600";
+      else if (incidentPriority === "P2") colorClass = "bg-orange-500";
+      else if (incidentPriority === "P3") colorClass = "bg-yellow-400";
+
       return (
         <Link
           className="cursor-pointer"
@@ -72,7 +81,7 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
         >
           <Badge
             variant="destructive"
-            className="h-10 w-10 rounded-full px-1 font-mono tabular-nums"
+            className={`h-10 w-10 rounded-full px-1 font-mono tabular-nums ${colorClass}`}
           >
             {incidentPriority}
           </Badge>
@@ -84,8 +93,18 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     accessorKey: "incidentStatus",
     header: "Status",
     cell: ({ row }) => {
-      const incidentStatus = row.getValue<string>("incidentStatus") || "";
+      const incidentStatus = (
+        row.getValue<string>("incidentStatus") || ""
+      ).toLowerCase();
       const incidentNo = row.getValue<string>("incidentNo") || "";
+
+      // Determine color based on status
+      let bgClass = "bg-gray-500";
+      if (incidentStatus === "open") bgClass = "bg-blue-500 text-white";
+      else if (incidentStatus === "done") bgClass = "bg-green-500 text-white";
+      else if (incidentStatus === "onhold")
+        bgClass = "bg-orange-500 text-white";
+
       return (
         <Link
           className="cursor-pointer"
@@ -93,10 +112,10 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
         >
           <Badge
             variant="secondary"
-            className="flex items-center gap-1 bg-blue-500 text-white dark:bg-blue-600 px-4 py-3"
+            className={`flex items-center gap-1 px-4 py-3 ${bgClass}`}
           >
             <BadgeCheckIcon size={14} />
-            {incidentStatus}
+            {incidentStatus.charAt(0).toUpperCase() + incidentStatus.slice(1)}
           </Badge>
         </Link>
       );

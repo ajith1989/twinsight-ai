@@ -6,7 +6,7 @@ export function FloatingChatIcon() {
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <Link href="/ask-twinsight">
-        <Button className="cursor-pointer">
+        <Button className="cursor-pointer bg-[#1800ad] text-white">
           <MessageCircleCode /> Ask TwinSight
         </Button>
       </Link>
