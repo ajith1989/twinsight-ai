@@ -32,7 +32,7 @@ export default async function IncidentDetailsPage({
     <>
       <PageHeader
         breadcrumb={[
-          { title: "Operational Resilience", href: "/" },
+          { title: "Operational Resilience", href: "/operational-resilience" },
           { title: incidentDetailsData?.incidentNo },
         ]}
       />
