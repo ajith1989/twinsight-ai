@@ -4,9 +4,9 @@ import Link from "next/link";
 
 export function FloatingChatIcon() {
   return (
-    <div className="fixed bottom-4 right-4">
-      <Link href="/ask-twinsight" className="cursor-pointer">
-        <Button>
+    <div className="fixed bottom-4 right-4 z-50">
+      <Link href="/ask-twinsight">
+        <Button className="cursor-pointer">
           <MessageCircleCode /> Ask TwinSight
         </Button>
       </Link>
