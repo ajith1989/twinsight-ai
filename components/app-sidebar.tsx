@@ -25,8 +25,8 @@ import {
 // Sidebar Mock Data
 const data = {
   user: {
-    name: "Support Engineer",
-    email: "support@emirates.com",
+    name: "John Doe",
+    email: "johndoe@company.com",
     // avatar: "/avatars/shadcn.jpg",
   },
   menu: [

@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { AppSidebar } from "@/components/app-sidebar";
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 
 import "./globals.css";
+import { FloatingChatIcon } from "@/components/floating-chat-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +34,7 @@ export default function RootLayout({
         <SidebarProvider>
           <AppSidebar />
           <SidebarInset>
+            <FloatingChatIcon />
             <main className="px-4">{children}</main>
           </SidebarInset>
         </SidebarProvider>
