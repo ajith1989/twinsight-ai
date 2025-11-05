@@ -98,7 +98,7 @@ export function IncidentsTable<TData, TValue>({
         </div>
       </CardContent>
       <CardFooter className="text-sm opacity-50">
-        Inactive incidents are archived after 7 days
+        Inactive incidents are archived after 14 days
       </CardFooter>
     </Card>
   );
