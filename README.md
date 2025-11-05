@@ -151,14 +151,6 @@ NEXT_PUBLIC_APP_INSIGHTS_KEY=...
   - Expects: `{ incidentNo: string, incidentTitle: string }`
   - Returns: Streaming response of agent actions and outputs
 
-### Further recommendations
-- Add a short diagram (ASCII or image in `public/`) showing how the frontend, API routes, vector store, and Azure AI services interact
-- Add a `docs/ai.md` or an expanded section in the README that documents prompt designs, embedding strategy, and agent workflows
-- Consider adding a cost-control README section detailing expected billable operations and how to switch to cheaper models for dev
-- Document the agent interaction patterns and typical workflow sequences
-- Add examples of successful agent conversations and their outcomes
-- Include troubleshooting guides for common agent workflow issues
-
 ## 🔐 Security
 
 The application implements secure practices for handling sensitive operational data and AI interactions. Please follow security guidelines when deploying to production.
