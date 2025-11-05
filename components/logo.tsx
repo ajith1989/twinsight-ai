@@ -5,6 +5,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { GalleryHorizontal } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Logo() {
@@ -13,8 +14,14 @@ export function Logo() {
       <SidebarMenuItem>
         <SidebarMenuButton size="lg" asChild>
           <Link href="/">
-            <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-              <GalleryHorizontal className="size-4" />
+            <div className="text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+              <Image
+                src="/twinsight-logo.jpg"
+                width={40}
+                height={40}
+                alt="TwinSight AI"
+                className="rounded overflow-hidden"
+              />
             </div>
             <div className="flex flex-col gap-0.5 leading-none">
               <span className="font-medium">TwinSight AI</span>
