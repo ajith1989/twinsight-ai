@@ -22,11 +22,7 @@ export function PendingRFC() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Pending Change Request</CardTitle>
-        <CardDescription>
-          Real-time monitoring of incidents and dependencies affecting release
-          safety
-        </CardDescription>
+        <CardTitle>Pending Change Requests</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex w-full flex-col gap-6">
@@ -36,10 +32,12 @@ export function PendingRFC() {
             </ItemMedia>
             <ItemContent>
               <ItemTitle>
-                Upgrade Application Database Server from PostgreSQL 13 to
-                PostgreSQL 15
+                CHG-51307: Upgrade Application Database Server from PostgreSQL
+                13 to PostgreSQL 15
               </ItemTitle>
-              <ItemDescription></ItemDescription>
+              <ItemDescription>
+                John Smith | DB-Server | Expires in 4 days
+              </ItemDescription>
             </ItemContent>
             <ItemActions>
               <ButtonGroup>
@@ -52,9 +50,6 @@ export function PendingRFC() {
           </Item>
         </div>
       </CardContent>
-      <CardFooter className="text-sm opacity-50">
-        John Smith | DB-Server | Expires in 4 days
-      </CardFooter>
     </Card>
   );
 }

@@ -70,9 +70,9 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
 
       // Determine color based on priority
       let colorClass = "bg-gray-500";
-      if (incidentPriority === "P1") colorClass = "bg-red-600";
-      else if (incidentPriority === "P2") colorClass = "bg-orange-500";
-      else if (incidentPriority === "P3") colorClass = "bg-yellow-400";
+      if (incidentPriority === "P1") colorClass = "bg-red-500/60 text-white";
+      else if (incidentPriority === "P2") colorClass = "bg-orange-500/80";
+      else if (incidentPriority === "P3") colorClass = "bg-yellow-400/80";
 
       return (
         <Link
@@ -80,7 +80,6 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
           href={`operational-resilience/${incidentNo}`}
         >
           <Badge
-            variant="destructive"
             className={`h-10 w-10 rounded-full px-1 font-mono tabular-nums ${colorClass}`}
           >
             {incidentPriority}

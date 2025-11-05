@@ -14,8 +14,8 @@ import {
 
 export function ChangeCalendar() {
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
-    from: new Date(2025, 5, 12),
-    to: new Date(2025, 6, 15),
+    from: new Date(2025, 10, 28),
+    to: new Date(2025, 11, 4),
   });
 
   return (
