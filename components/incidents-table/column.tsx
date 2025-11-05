@@ -15,7 +15,10 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     cell: ({ row }) => {
       const incidentNo = row.getValue<string>("incidentNo") || "";
       return (
-        <Link href={`operational-resilience/${incidentNo}`}>
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
+        >
           <strong className="px-4">{incidentNo}</strong>
         </Link>
       );
@@ -24,17 +27,35 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
   {
     accessorKey: "incidentTitle",
     header: "Title",
+    cell: ({ row }) => {
+      const incidentTitle = row.getValue<string>("incidentTitle") || "";
+      const incidentNo = row.getValue<string>("incidentNo") || "";
+      return (
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
+        >
+          <strong>{incidentTitle}</strong>
+        </Link>
+      );
+    },
   },
   {
     accessorKey: "ciName",
     header: "Configuration Item",
     cell: ({ row }) => {
       const ciName = row.getValue<string>("ciName") || "";
+      const incidentNo = row.getValue<string>("incidentNo") || "";
       return (
-        <Button variant="outline">
-          <MonitorIcon className="opacity-50" />
-          {ciName}
-        </Button>
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
+        >
+          <Button variant="outline">
+            <MonitorIcon className="opacity-50" />
+            {ciName}
+          </Button>
+        </Link>
       );
     },
   },
@@ -43,13 +64,19 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     header: "Severity",
     cell: ({ row }) => {
       const incidentPriority = row.getValue<string>("incidentPriority") || "";
+      const incidentNo = row.getValue<string>("incidentNo") || "";
       return (
-        <Badge
-          variant="destructive"
-          className="h-10 w-10 rounded-full px-1 font-mono tabular-nums"
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
         >
-          {incidentPriority}
-        </Badge>
+          <Badge
+            variant="destructive"
+            className="h-10 w-10 rounded-full px-1 font-mono tabular-nums"
+          >
+            {incidentPriority}
+          </Badge>
+        </Link>
       );
     },
   },
@@ -58,14 +85,20 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     header: "Status",
     cell: ({ row }) => {
       const incidentStatus = row.getValue<string>("incidentStatus") || "";
+      const incidentNo = row.getValue<string>("incidentNo") || "";
       return (
-        <Badge
-          variant="secondary"
-          className="flex items-center gap-1 bg-blue-500 text-white dark:bg-blue-600 px-4 py-3"
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
         >
-          <BadgeCheckIcon size={14} />
-          {incidentStatus}
-        </Badge>
+          <Badge
+            variant="secondary"
+            className="flex items-center gap-1 bg-blue-500 text-white dark:bg-blue-600 px-4 py-3"
+          >
+            <BadgeCheckIcon size={14} />
+            {incidentStatus}
+          </Badge>
+        </Link>
       );
     },
   },
@@ -74,11 +107,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     header: "Assignee",
     cell: ({ row }) => {
       const incidentAssignee = row.getValue<string>("incidentAssignee") || "";
+      const incidentNo = row.getValue<string>("incidentNo") || "";
       return (
-        <Button variant="outline">
-          <UserIcon className="opacity-50" />
-          {incidentAssignee}
-        </Button>
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
+        >
+          <Button variant="outline">
+            <UserIcon className="opacity-50" />
+            {incidentAssignee}
+          </Button>
+        </Link>
       );
     },
   },
@@ -88,7 +127,15 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
     cell: ({ row }) => {
       const recommendationAccuracy =
         row.getValue<string>("recommendationAccuracy") || "0";
-      return <Progress value={parseInt(recommendationAccuracy)} />;
+      const incidentNo = row.getValue<string>("incidentNo") || "";
+      return (
+        <Link
+          className="cursor-pointer"
+          href={`operational-resilience/${incidentNo}`}
+        >
+          <Progress value={parseInt(recommendationAccuracy)} />
+        </Link>
+      );
     },
   },
 ];
