@@ -31,7 +31,7 @@ export function PendingRFC() {
       <CardContent>
         <div className="flex w-full flex-col gap-6">
           <Item variant="outline">
-            <ItemMedia variant="icon">
+            <ItemMedia variant="icon" className="bg-blue-500">
               <CheckCheckIcon />
             </ItemMedia>
             <ItemContent>

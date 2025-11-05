@@ -22,7 +22,6 @@ export function ChangeCalendar() {
     <Card>
       <CardHeader>
         <CardTitle>Annual IT Change Calendar</CardTitle>
-        <CardDescription>Select date range</CardDescription>
       </CardHeader>
       <CardContent>
         <Calendar
