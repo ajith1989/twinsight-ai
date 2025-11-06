@@ -18,13 +18,13 @@ export default function TotalChangeRequests() {
       <CardHeader>
         <CardDescription>Total Change Requests</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          123
+          232
         </CardTitle>
         <CardAction>
           <Badge variant="outline" className={trendColor}>
             <TrendIcon className="w-3 h-3" />
             {direction === "up" ? "+" : "-"}
-            12%
+            5%
           </Badge>
         </CardAction>
       </CardHeader>

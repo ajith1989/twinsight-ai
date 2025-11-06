@@ -18,7 +18,7 @@ export default function TimeSaved() {
       <CardHeader>
         <CardDescription>Time Saved</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          123
+          245
         </CardTitle>
         <CardAction>
           <Badge variant="outline" className={trendColor}>

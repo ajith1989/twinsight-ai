@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { TrendingDown, TrendingUp } from "lucide-react";
+import numeral from "numeral";
 
 export default function FailurePrevention() {
   const direction: "up" | "down" = "up";
@@ -18,7 +19,7 @@ export default function FailurePrevention() {
       <CardHeader>
         <CardDescription>Failure Prevention Rate</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          123
+          {numeral(".81").format("0%")}
         </CardTitle>
         <CardAction>
           <Badge variant="outline" className={trendColor}>

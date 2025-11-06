@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { TrendingDown, TrendingUp } from "lucide-react";
+import numeral from "numeral";
 
 export default function ChangeLeadTime() {
   const direction: "up" | "down" = "up";
@@ -18,13 +19,13 @@ export default function ChangeLeadTime() {
       <CardHeader>
         <CardDescription>Change Lead Time Trend</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          123
+          {numeral(".65").format("0%")}
         </CardTitle>
         <CardAction>
           <Badge variant="outline" className={trendColor}>
             <TrendIcon className="w-3 h-3" />
             {direction === "up" ? "+" : "-"}
-            12%
+            14%
           </Badge>
         </CardAction>
       </CardHeader>

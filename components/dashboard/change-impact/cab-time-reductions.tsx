@@ -18,13 +18,13 @@ export default function CABTimeReductions() {
       <CardHeader>
         <CardDescription>CAB Time Reductions</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          123
+          323
         </CardTitle>
         <CardAction>
           <Badge variant="outline" className={trendColor}>
             <TrendIcon className="w-3 h-3" />
             {direction === "up" ? "+" : "-"}
-            12%
+            11%
           </Badge>
         </CardAction>
       </CardHeader>
