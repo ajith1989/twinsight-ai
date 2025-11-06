@@ -21,24 +21,12 @@ import {
 
 const applications = [
   {
-    value: "DB-Server-01",
-    label: "DB-Server-01",
+    value: "Fly App",
+    label: "Fly App",
   },
   {
-    value: "API-Gateway-02",
-    label: "API-Gateway-02",
-  },
-  {
-    value: "Mail-Service",
-    label: "Mail-Service",
-  },
-  {
-    value: "File-Server-03",
-    label: "File-Server-03",
-  },
-  {
-    value: "Auth-Service",
-    label: "Auth-Service",
+    value: "Rebook App",
+    label: "Rebook App",
   },
 ];
 

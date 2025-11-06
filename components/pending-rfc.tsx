@@ -36,7 +36,7 @@ export function PendingRFC() {
                 13 to PostgreSQL 15
               </ItemTitle>
               <ItemDescription>
-                John Smith | DB-Server | Expires in 4 days
+                John Smith | Rebook App | Expires in 4 days
               </ItemDescription>
             </ItemContent>
             <ItemActions>
