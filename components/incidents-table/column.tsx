@@ -7,11 +7,22 @@ import { Incident } from "@/config/type";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import { ArrowUpDown } from "lucide-react";
 
 export const incidentsColumns: ColumnDef<Incident>[] = [
   {
     accessorKey: "incidentNo",
-    header: "ID",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          ID
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const incidentNo = row.getValue<string>("incidentNo") || "";
       return (
@@ -26,7 +37,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
   },
   {
     accessorKey: "incidentTitle",
-    header: "Title",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Title
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const incidentTitle = row.getValue<string>("incidentTitle") || "";
       const incidentNo = row.getValue<string>("incidentNo") || "";
@@ -42,7 +63,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
   },
   {
     accessorKey: "ciName",
-    header: "Configuration Item",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Configuration Item
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const ciName = row.getValue<string>("ciName") || "";
       const incidentNo = row.getValue<string>("incidentNo") || "";
@@ -61,7 +92,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
   },
   {
     accessorKey: "incidentPriority",
-    header: "Severity",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Severity
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const incidentPriority = (
         row.getValue<string>("incidentPriority") || ""
@@ -90,7 +131,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
   },
   {
     accessorKey: "incidentStatus",
-    header: "Status",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Status
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const incidentStatus = (
         row.getValue<string>("incidentStatus") || ""
@@ -101,8 +152,7 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
       let bgClass = "bg-gray-500";
       if (incidentStatus === "open") bgClass = "bg-blue-500 text-white";
       else if (incidentStatus === "done") bgClass = "bg-green-700 text-white";
-      else if (incidentStatus === "onhold")
-        bgClass = "bg-orange-500 text-white";
+      else if (incidentStatus === "on hold") bgClass = "bg-orange-500/80";
 
       return (
         <Link
@@ -122,7 +172,17 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
   },
   {
     accessorKey: "incidentAssignee",
-    header: "Assignee",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Assignee
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
     cell: ({ row }) => {
       const incidentAssignee = row.getValue<string>("incidentAssignee") || "";
       const incidentNo = row.getValue<string>("incidentNo") || "";

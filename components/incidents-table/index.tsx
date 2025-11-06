@@ -2,8 +2,12 @@
 
 import {
   ColumnDef,
+  SortingState,
+  ColumnFiltersState,
   flexRender,
   getCoreRowModel,
+  getFilteredRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
@@ -23,6 +27,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -33,10 +39,20 @@ export function IncidentsTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [sorting, setSorting] = useState<SortingState>([]);
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    onColumnFiltersChange: setColumnFilters,
+    getFilteredRowModel: getFilteredRowModel(),
+    onSortingChange: setSorting,
+    getSortedRowModel: getSortedRowModel(),
+    state: {
+      sorting,
+      columnFilters,
+    },
   });
 
   return (
@@ -46,6 +62,51 @@ export function IncidentsTable<TData, TValue>({
         <CardDescription>Top Engaged Incidents</CardDescription>
       </CardHeader>
       <CardContent>
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 pb-4">
+          <Input
+            placeholder="Search by Incident Number"
+            value={
+              (table.getColumn("incidentNo")?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table.getColumn("incidentNo")?.setFilterValue(event.target.value)
+            }
+          />
+          <Input
+            placeholder="Search by Incident Title"
+            value={
+              (table.getColumn("incidentTitle")?.getFilterValue() as string) ??
+              ""
+            }
+            onChange={(event) =>
+              table
+                .getColumn("incidentTitle")
+                ?.setFilterValue(event.target.value)
+            }
+          />
+          <Input
+            placeholder="Search by Configuration Item"
+            value={
+              (table.getColumn("ciName")?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table.getColumn("ciName")?.setFilterValue(event.target.value)
+            }
+          />
+          <Input
+            placeholder="Search by Assignee"
+            value={
+              (table
+                .getColumn("incidentAssignee")
+                ?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table
+                .getColumn("incidentAssignee")
+                ?.setFilterValue(event.target.value)
+            }
+          />
+        </div>
         <div className="overflow-hidden rounded-md border">
           <Table>
             <TableHeader>

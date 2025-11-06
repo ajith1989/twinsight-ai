@@ -1,4 +1,3 @@
-import DashboardFilter from "@/components/dashboard-filter";
 import { IncidentsTable } from "@/components/incidents-table";
 import { incidentsColumns } from "@/components/incidents-table/column";
 import PageHeader from "@/components/page-header";
@@ -18,13 +17,10 @@ export default async function HomePage() {
   return (
     <>
       <PageHeader breadcrumb={[{ title: "Operational Resilience" }]} />
-      <div className="flex flex-col space-y-4">
-        <DashboardFilter />
-        <IncidentsTable
-          data={incidentsData?.incidents}
-          columns={incidentsColumns}
-        />
-      </div>
+      <IncidentsTable
+        data={incidentsData?.incidents}
+        columns={incidentsColumns}
+      />
     </>
   );
 }
