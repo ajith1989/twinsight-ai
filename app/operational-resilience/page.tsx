@@ -1,7 +1,10 @@
+import { ChangeRequestsTable } from "@/components/change-request-table";
 import { IncidentsTable } from "@/components/incidents-table";
 import { incidentsColumns } from "@/components/incidents-table/column";
 import PageHeader from "@/components/page-header";
 import { FETCH_ALL_INCIDENTS } from "@/config/endpoints";
+import changeRequestData from "@/components/change-request-table/data";
+import { changeRequestsColumns } from "@/components/change-request-table/column";
 
 export default async function HomePage() {
   const incidentsResponse = await fetch(FETCH_ALL_INCIDENTS, {
@@ -17,10 +20,16 @@ export default async function HomePage() {
   return (
     <>
       <PageHeader breadcrumb={[{ title: "Operational Resilience" }]} />
-      <IncidentsTable
-        data={incidentsData?.incidents}
-        columns={incidentsColumns}
-      />
+      <div className="flex flex-col space-y-2">
+        <IncidentsTable
+          data={incidentsData?.incidents}
+          columns={incidentsColumns}
+        />
+        <ChangeRequestsTable
+          data={changeRequestData}
+          columns={changeRequestsColumns}
+        />
+      </div>
     </>
   );
 }

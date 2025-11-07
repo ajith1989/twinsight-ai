@@ -1,22 +1,37 @@
 export type Incident = {
-  incidentNo: string,
-  incidentTitle: string,
-  incidentPriority: string,
-  incidentStatus: string,
-  incidentAssignee: string,
-  incidentCreatedDate: string,
-  ciName: string,
-  ciDescription: string,
-  incidentClosureNotes: string,
-  incidentClosureDate: string,
-  recommendationSummary: string,
-  recommendationStatus: string,
-  recommendationUpdatedDate: string,
-  recommendationAccuracy: string,
-  type: string,
-  createdDate: string,
-  updatedDate: string,
-  id: string
+  incidentNo: string;
+  incidentTitle: string;
+  incidentPriority: string;
+  incidentStatus: string;
+  incidentAssignee: string;
+  incidentCreatedDate: string;
+  ciName: string;
+  ciDescription: string;
+  incidentClosureNotes: string;
+  incidentClosureDate: string;
+  recommendationSummary: string;
+  recommendationStatus: string;
+  recommendationUpdatedDate: string;
+  recommendationAccuracy: string;
+  type: string;
+  createdDate: string;
+  updatedDate: string;
+  id: string;
+};
+
+export type ChangeRequest = {
+  changeRequestNo: string;
+  changeRequestTitle: string;
+  changeRequestType: string;
+  changeRequestStatus: string;
+  changeRequestAssignee: string;
+  changeRequestCreatedDate: string;
+  ciName: string;
+  ciDescription: string;
+  type: string;
+  createdDate: string;
+  updatedDate: string;
+  id: string;
 };
 
 export interface Recommendation {
@@ -35,4 +50,3 @@ export type BreadcrumbType = {
   title: string;
   href?: string;
 };
-
