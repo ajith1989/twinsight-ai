@@ -18,8 +18,10 @@ export default function CABTimeReductions() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardDescription>CAB Time Reductions</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-blue-500">
+        <CardDescription className="font-semibold">
+          CAB Time Reductions
+        </CardDescription>
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
           323
         </CardTitle>
         <CardAction>

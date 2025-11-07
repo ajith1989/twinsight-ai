@@ -29,7 +29,7 @@ const chartData = [
 const chartConfig = {
   leadTime: {
     label: "Lead Time (hours)",
-    color: "var(--chart-2)",
+    color: "#01bbd3",
   },
 } satisfies ChartConfig;
 

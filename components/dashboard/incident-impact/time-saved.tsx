@@ -17,8 +17,8 @@ export default function TimeSaved() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardDescription>Time Saved</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-blue-500">
+        <CardDescription className="font-semibold">Time Saved</CardDescription>
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
           245
         </CardTitle>
         <CardAction>

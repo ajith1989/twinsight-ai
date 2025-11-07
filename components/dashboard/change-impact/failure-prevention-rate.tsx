@@ -18,7 +18,9 @@ export default function FailurePrevention() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardDescription>Failure Prevention Rate</CardDescription>
+        <CardDescription className="font-semibold">
+          Failure Prevention Rate
+        </CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-green-700">
           {numeral(".81").format("0%")}
         </CardTitle>

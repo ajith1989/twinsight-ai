@@ -17,7 +17,9 @@ export default function TotalEngagedIncidents() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardDescription>Total Engaged Incidents</CardDescription>
+        <CardDescription className="font-semibold">
+          Total Engaged Incidents
+        </CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
           114
         </CardTitle>

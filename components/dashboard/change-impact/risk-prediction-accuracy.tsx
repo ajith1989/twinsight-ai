@@ -18,7 +18,9 @@ export default function RiskPredictionAccuracy() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardDescription>Risk Prediction Accuracy</CardDescription>
+        <CardDescription className="font-semibold">
+          Risk Prediction Accuracy
+        </CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-green-700">
           {numeral(".8").format("0%")}
         </CardTitle>

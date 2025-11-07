@@ -28,7 +28,7 @@ const chartData = [
 const chartConfig = {
   mttr: {
     label: "MTTR (hours)",
-    color: "var(--chart-1)",
+    color: "#fc6266",
   },
 } satisfies ChartConfig;
 
