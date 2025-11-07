@@ -1,44 +1,73 @@
+"use client";
+
+import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts";
+
 import {
   Card,
-  CardAction,
+  CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Info } from "lucide-react";
-import numeral from "numeral";
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+
+export const description =
+  "Improvement trend in time taken from change proposal → approval → successful deployment";
+
+const chartData = [
+  { quarter: "Q1", leadTime: 72 },
+  { quarter: "Q2", leadTime: 65 },
+  { quarter: "Q3", leadTime: 58 },
+  { quarter: "Q4", leadTime: 50 },
+];
+
+const chartConfig = {
+  leadTime: {
+    label: "Lead Time (hours)",
+    color: "var(--chart-2)",
+  },
+} satisfies ChartConfig;
 
 export default function ChangeLeadTime() {
   return (
-    <Card className="@container/card">
+    <Card>
       <CardHeader>
-        <CardDescription>Change Lead Time Trend</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-green-700">
-          {numeral(".65").format("0%")}
-        </CardTitle>
-        <CardAction>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Info className="opacity-50 cursor-pointer" size="16" />
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>
-                Improvement trend in time taken from change proposal → approval
-                → successful deployment
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        </CardAction>
+        <CardTitle>Change Lead Time - Quarter-over-Quarter</CardTitle>
+        <CardDescription>
+          Improvement trend in time taken from change proposal → approval →
+          successful deployment
+        </CardDescription>
       </CardHeader>
-      <CardFooter className="text-sm">
-        <div className="text-muted-foreground">QoQ Change</div>
-      </CardFooter>
+      <CardContent>
+        <ChartContainer config={chartConfig} className="h-96">
+          <BarChart accessibilityLayer data={chartData} margin={{ top: 20 }}>
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="quarter"
+              tickLine={false}
+              tickMargin={10}
+              axisLine={false}
+            />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
+            <Bar dataKey="leadTime" fill="var(--color-leadTime)" radius={8}>
+              <LabelList
+                position="top"
+                offset={12}
+                className="fill-foreground"
+                fontSize={12}
+              />
+            </Bar>
+          </BarChart>
+        </ChartContainer>
+      </CardContent>
     </Card>
   );
 }
