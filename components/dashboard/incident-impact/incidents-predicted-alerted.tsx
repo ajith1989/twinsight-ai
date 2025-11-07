@@ -18,7 +18,7 @@ export default function IncidentsPredictedAlerted() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription className="font-semibold">
-          Incidents - Predicted & Alerted
+          Predicted & Alerted Incidents
         </CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
           93
