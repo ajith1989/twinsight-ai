@@ -13,7 +13,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
 
 export default function ChangeLeadTime() {
   return (
@@ -26,9 +25,7 @@ export default function ChangeLeadTime() {
         <CardAction>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Info />
-              </Button>
+              <Info className="opacity-50" size="16" />
             </TooltipTrigger>
             <TooltipContent>
               <p>

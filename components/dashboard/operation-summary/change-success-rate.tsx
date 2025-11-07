@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -26,9 +25,7 @@ export default function ChangeSuccessRate() {
         <CardAction>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Info />
-              </Button>
+              <Info className="opacity-50" size="16" />
             </TooltipTrigger>
             <TooltipContent>
               <p>

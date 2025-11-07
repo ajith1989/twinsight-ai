@@ -12,7 +12,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button } from "@/components/ui/button";
 
 export default function TotalChangeRequests() {
   return (
@@ -25,9 +24,7 @@ export default function TotalChangeRequests() {
         <CardAction>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button variant="outline" size="icon">
-                <Info />
-              </Button>
+              <Info className="opacity-50" size="16" />
             </TooltipTrigger>
             <TooltipContent>
               <p>
