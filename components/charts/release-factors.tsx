@@ -39,10 +39,10 @@ const chartData = [
 const chartConfig = {
   count: {
     label: "High Risk Dependencies",
-    color: "hsl(0, 84%, 60%)",
+    color: "#8ec5ff",
   },
   label: {
-    color: "var(--background)",
+    color: "#000000",
   },
 } satisfies ChartConfig;
 
@@ -87,7 +87,7 @@ export function ReleaseFactors() {
                 dataKey="category"
                 position="insideLeft"
                 offset={8}
-                className="fill-white"
+                className="fill-black"
                 fontSize={12}
               />
               <LabelList
