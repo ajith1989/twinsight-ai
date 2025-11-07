@@ -11,7 +11,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Info } from "lucide-react";
+import { Info, TrendingUp } from "lucide-react";
 import numeral from "numeral";
 
 export default function ChangeSuccessRate() {
@@ -38,8 +38,11 @@ export default function ChangeSuccessRate() {
           </Tooltip>
         </CardAction>
       </CardHeader>
-      <CardFooter className="text-sm">
-        <div className="text-muted-foreground">Previous Month</div>
+      <CardFooter className="flex-col items-start gap-1.5 text-sm">
+        <div className="text-muted-foreground">Last 30 days</div>
+        <div className="line-clamp-1 flex gap-2 font-medium">
+          Trending up this month <TrendingUp className="size-4" />
+        </div>
       </CardFooter>
     </Card>
   );

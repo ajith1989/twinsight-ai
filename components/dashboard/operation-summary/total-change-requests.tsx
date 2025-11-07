@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Info } from "lucide-react";
+import { Info, TrendingUp } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -37,8 +37,11 @@ export default function TotalChangeRequests() {
           </Tooltip>
         </CardAction>
       </CardHeader>
-      <CardFooter className="text-sm">
-        <div className="text-muted-foreground">Previous Month</div>
+      <CardFooter className="flex-col items-start gap-1.5 text-sm">
+        <div className="text-muted-foreground">Last 30 days</div>
+        <div className="line-clamp-1 flex gap-2 font-medium">
+          Trending up this month <TrendingUp className="size-4" />
+        </div>
       </CardFooter>
     </Card>
   );
