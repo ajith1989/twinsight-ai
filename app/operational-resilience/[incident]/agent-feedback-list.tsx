@@ -83,10 +83,10 @@ export default function AgentFeedbackList({
                 <CardFooter>
                   <ButtonGroup>
                     <Button variant="outline" size="icon-sm">
-                      <ThumbsUpIcon />
+                      <ThumbsUpIcon fill="green" />
                     </Button>
                     <Button variant="outline" size="icon-sm">
-                      <ThumbsDownIcon />
+                      <ThumbsDownIcon fill="red" />
                     </Button>
                   </ButtonGroup>
                 </CardFooter>
