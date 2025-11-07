@@ -1,3 +1,4 @@
+import ChangeRiskFilter from "@/components/change-risk-filter";
 import ChangeImpact from "@/components/dashboard/change-impact";
 import IncidentImpact from "@/components/dashboard/incident-impact";
 import OperationalSummary from "@/components/dashboard/operation-summary";
@@ -7,6 +8,7 @@ export default async function OperationalResiliencePage() {
   return (
     <>
       <PageHeader breadcrumb={[{ title: "Dashboard" }]} />
+      <ChangeRiskFilter />
       <div className="flex flex-col space-y-4">
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight pt-4 pl-4">
           Operational Health Overview
