@@ -13,14 +13,15 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import numeral from "numeral";
 
 export default function RiskPredictionAccuracy() {
   return (
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>Risk Prediction Accuracy</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          80
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-green-700">
+          {numeral(".8").format("0%")}
         </CardTitle>
         <CardAction>
           <Tooltip>

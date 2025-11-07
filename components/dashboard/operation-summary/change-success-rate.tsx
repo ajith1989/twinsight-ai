@@ -20,7 +20,7 @@ export default function ChangeSuccessRate() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>Change Success Rate</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-green-700">
           {numeral(".87").format("0%")}
         </CardTitle>
         <CardAction>

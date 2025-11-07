@@ -20,7 +20,7 @@ export default function CostSaved() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>Cost Saved</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-blue-500">
           {numeral("12000").format("0 a")}
         </CardTitle>
         <CardAction>

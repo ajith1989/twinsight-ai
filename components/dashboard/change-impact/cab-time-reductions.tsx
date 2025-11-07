@@ -20,7 +20,7 @@ export default function CABTimeReductions() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>CAB Time Reductions</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-blue-500">
           323
         </CardTitle>
         <CardAction>
@@ -40,7 +40,7 @@ export default function CABTimeReductions() {
         </CardAction>
       </CardHeader>
       <CardFooter className="text-sm">
-        <div className="text-muted-foreground">Hours/Meetings</div>
+        <div className="text-muted-foreground">Hours</div>
       </CardFooter>
     </Card>
   );

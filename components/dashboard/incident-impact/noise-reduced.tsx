@@ -20,7 +20,7 @@ export default function NoiseReduced() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>Noise Reduced</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-green-700">
           {numeral(".72").format("0%")}
         </CardTitle>
         <CardAction>

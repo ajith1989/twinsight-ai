@@ -19,7 +19,7 @@ export default function TotalChangeRequests() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>Total Change Requests</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-blue-500">
           55
         </CardTitle>
         <CardAction>
