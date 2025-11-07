@@ -17,7 +17,7 @@ export default function TotalChangeRequests() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardDescription>Total Change Requests</CardDescription>
+        <CardDescription>Total Engaged Change Requests</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
           55
         </CardTitle>
