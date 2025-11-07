@@ -39,7 +39,7 @@ export default function NoiseReduced() {
         </CardAction>
       </CardHeader>
       <CardFooter className="text-sm">
-        <div className="text-muted-foreground">% Alert Reduction</div>
+        <div className="text-muted-foreground">Percentage</div>
       </CardFooter>
     </Card>
   );
