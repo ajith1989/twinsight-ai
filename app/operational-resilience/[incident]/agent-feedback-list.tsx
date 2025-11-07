@@ -79,13 +79,23 @@ export default function AgentFeedbackList({
             <AccordionTrigger>TwinSight Recommendation</AccordionTrigger>
             <AccordionContent>
               <Card className="bg-green-800 mt-2">
-                <CardContent className="text-lg">{suggestion}</CardContent>
-                <CardFooter>
+                <CardContent className="text-base px-4">
+                  {suggestion}
+                </CardContent>
+                <CardFooter className="px-4">
                   <ButtonGroup>
-                    <Button variant="outline" size="icon-sm">
-                      <ThumbsUpIcon fill="green" />
+                    <Button
+                      variant="outline"
+                      size="icon-sm"
+                      className="cursor-pointer"
+                    >
+                      <ThumbsUpIcon fill="#2b7fff" />
                     </Button>
-                    <Button variant="outline" size="icon-sm">
+                    <Button
+                      variant="outline"
+                      size="icon-sm"
+                      className="cursor-pointer"
+                    >
                       <ThumbsDownIcon fill="red" />
                     </Button>
                   </ButtonGroup>
