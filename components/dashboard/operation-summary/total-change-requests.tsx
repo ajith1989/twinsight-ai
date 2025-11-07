@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
@@ -7,12 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { Info } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 
 export default function TotalChangeRequests() {
-  const direction: "up" | "down" = "up";
-  const TrendIcon = direction === "up" ? TrendingUp : TrendingDown;
-  const trendColor = direction === "up" ? "text-green-600" : "text-red-600";
   return (
     <Card className="@container/card">
       <CardHeader>
@@ -21,11 +23,19 @@ export default function TotalChangeRequests() {
           232
         </CardTitle>
         <CardAction>
-          <Badge variant="outline" className={trendColor}>
-            <TrendIcon className="w-3 h-3" />
-            {direction === "up" ? "+" : "-"}
-            5%
-          </Badge>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Info />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                Number of change requests tracked, assessed, or influenced by
+                TwinSight intelligence
+              </p>
+            </TooltipContent>
+          </Tooltip>
         </CardAction>
       </CardHeader>
       <CardFooter className="text-sm">

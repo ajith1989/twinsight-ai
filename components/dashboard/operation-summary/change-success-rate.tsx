@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -7,13 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Info } from "lucide-react";
 import numeral from "numeral";
 
 export default function ChangeSuccessRate() {
-  const direction: "up" | "down" = "up";
-  const TrendIcon = direction === "up" ? TrendingUp : TrendingDown;
-  const trendColor = direction === "up" ? "text-green-600" : "text-red-600";
   return (
     <Card className="@container/card">
       <CardHeader>
@@ -22,11 +24,19 @@ export default function ChangeSuccessRate() {
           {numeral(".87").format("0%")}
         </CardTitle>
         <CardAction>
-          <Badge variant="outline" className={trendColor}>
-            <TrendIcon className="w-3 h-3" />
-            {direction === "up" ? "+" : "-"}
-            15%
-          </Badge>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Info />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                Percentage of changes deployed without causing incidents,
+                rollbacks, or service instability
+              </p>
+            </TooltipContent>
+          </Tooltip>
         </CardAction>
       </CardHeader>
       <CardFooter className="text-sm">

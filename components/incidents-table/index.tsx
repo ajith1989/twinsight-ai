@@ -64,6 +64,15 @@ export function IncidentsTable<TData, TValue>({
       <CardContent>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 pb-4">
           <Input
+            placeholder="Search by Configuration Item"
+            value={
+              (table.getColumn("ciName")?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table.getColumn("ciName")?.setFilterValue(event.target.value)
+            }
+          />
+          <Input
             placeholder="Search by Incident Number"
             value={
               (table.getColumn("incidentNo")?.getFilterValue() as string) ?? ""
@@ -82,15 +91,6 @@ export function IncidentsTable<TData, TValue>({
               table
                 .getColumn("incidentTitle")
                 ?.setFilterValue(event.target.value)
-            }
-          />
-          <Input
-            placeholder="Search by Configuration Item"
-            value={
-              (table.getColumn("ciName")?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table.getColumn("ciName")?.setFilterValue(event.target.value)
             }
           />
           <Input

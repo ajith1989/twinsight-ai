@@ -152,7 +152,7 @@ export const incidentsColumns: ColumnDef<Incident>[] = [
       let bgClass = "bg-gray-500";
       if (incidentStatus === "open") bgClass = "bg-blue-500 text-white";
       else if (incidentStatus === "done") bgClass = "bg-green-700 text-white";
-      else if (incidentStatus === "on hold") bgClass = "bg-orange-500/80";
+      else if (incidentStatus === "onhold") bgClass = "bg-orange-500/80";
 
       return (
         <Link
