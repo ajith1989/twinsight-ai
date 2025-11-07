@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
@@ -7,12 +6,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { Info } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 
 export default function RiskPredictionAccuracy() {
-  const direction: "up" | "down" = "up";
-  const TrendIcon = direction === "up" ? TrendingUp : TrendingDown;
-  const trendColor = direction === "up" ? "text-green-600" : "text-red-600";
   return (
     <Card className="@container/card">
       <CardHeader>
@@ -21,11 +23,19 @@ export default function RiskPredictionAccuracy() {
           80
         </CardTitle>
         <CardAction>
-          <Badge variant="outline" className={trendColor}>
-            <TrendIcon className="w-3 h-3" />
-            {direction === "up" ? "+" : "-"}
-            12%
-          </Badge>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Info />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                Accuracy of risk scoring and change impact predictions based on
+                dependency and historical
+              </p>
+            </TooltipContent>
+          </Tooltip>
         </CardAction>
       </CardHeader>
       <CardFooter className="text-sm">

@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
@@ -7,13 +6,16 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { Info } from "lucide-react";
 import numeral from "numeral";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 
 export default function ChangeLeadTime() {
-  const direction: "up" | "down" = "up";
-  const TrendIcon = direction === "up" ? TrendingUp : TrendingDown;
-  const trendColor = direction === "up" ? "text-green-600" : "text-red-600";
   return (
     <Card className="@container/card">
       <CardHeader>
@@ -22,11 +24,19 @@ export default function ChangeLeadTime() {
           {numeral(".65").format("0%")}
         </CardTitle>
         <CardAction>
-          <Badge variant="outline" className={trendColor}>
-            <TrendIcon className="w-3 h-3" />
-            {direction === "up" ? "+" : "-"}
-            14%
-          </Badge>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Info />
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>
+                Improvement trend in time taken from change proposal → approval
+                → successful deployment
+              </p>
+            </TooltipContent>
+          </Tooltip>
         </CardAction>
       </CardHeader>
       <CardFooter className="text-sm">

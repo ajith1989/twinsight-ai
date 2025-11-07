@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Info } from "lucide-react";
-import numeral from "numeral";
 import {
   Tooltip,
   TooltipContent,
