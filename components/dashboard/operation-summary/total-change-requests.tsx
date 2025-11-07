@@ -18,13 +18,13 @@ export default function TotalChangeRequests() {
     <Card className="@container/card">
       <CardHeader>
         <CardDescription>Total Change Requests</CardDescription>
-        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl text-blue-500">
+        <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
           55
         </CardTitle>
         <CardAction>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Info className="opacity-50" size="16" />
+              <Info className="opacity-50 cursor-pointer" size="16" />
             </TooltipTrigger>
             <TooltipContent>
               <p>

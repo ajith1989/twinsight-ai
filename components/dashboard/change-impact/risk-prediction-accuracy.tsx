@@ -25,7 +25,7 @@ export default function RiskPredictionAccuracy() {
         <CardAction>
           <Tooltip>
             <TooltipTrigger asChild>
-              <Info className="opacity-50" size="16" />
+              <Info className="opacity-50 cursor-pointer" size="16" />
             </TooltipTrigger>
             <TooltipContent>
               <p>
