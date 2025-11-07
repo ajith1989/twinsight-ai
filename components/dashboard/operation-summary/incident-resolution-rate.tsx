@@ -39,7 +39,6 @@ export default function IncidentResolutionRate() {
         </CardAction>
       </CardHeader>
       <CardFooter className="flex-col items-start gap-1.5 text-sm">
-        <div className="text-muted-foreground">Last 30 days</div>
         <div className="line-clamp-1 flex gap-2 font-medium">
           Trending up this month <TrendingUp className="size-4" />
         </div>
