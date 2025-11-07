@@ -10,15 +10,15 @@ export default async function OperationalResiliencePage() {
       <PageHeader breadcrumb={[{ title: "Dashboard" }]} />
       <ChangeRiskFilter />
       <div className="flex flex-col space-y-4">
-        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight pt-4 pl-4">
+        <h4 className="scroll-m-20 md:text-xl font-semibold tracking-tight pt-4 pl-4">
           Operational Health Overview
         </h4>
         <OperationalSummary />
-        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight pt-4 pl-4">
+        <h4 className="scroll-m-20 text-md md:text-xl font-semibold tracking-tight pt-4 pl-4">
           Incident Efficiency & Recovery Impact
         </h4>
         <IncidentImpact />
-        <h4 className="scroll-m-20 text-xl font-semibold tracking-tight pt-4 pl-4">
+        <h4 className="scroll-m-20 md:text-xl font-semibold tracking-tight pt-4 pl-4">
           Change Reliability & Risk Reduction
         </h4>
         <ChangeImpact />

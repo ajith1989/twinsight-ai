@@ -35,7 +35,7 @@ export default function RootLayout({
           <AppSidebar />
           <SidebarInset>
             <FloatingChatIcon />
-            <main className="px-4">{children}</main>
+            <main className="px-4 pb-4">{children}</main>
           </SidebarInset>
         </SidebarProvider>
       </body>

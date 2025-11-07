@@ -1,6 +1,13 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, LabelList, XAxis } from "recharts";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  LabelList,
+  ResponsiveContainer,
+  XAxis,
+} from "recharts";
 
 import {
   Card,
@@ -42,28 +49,30 @@ export default function MTTR() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-96">
-          <BarChart accessibilityLayer data={chartData} margin={{ top: 20 }}>
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="quarter"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-            />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Bar dataKey="mttr" fill="var(--color-mttr)" radius={8}>
-              <LabelList
-                position="top"
-                offset={12}
-                className="fill-foreground"
-                fontSize={12}
+        <ChartContainer config={chartConfig} className="h-96 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart accessibilityLayer data={chartData} margin={{ top: 20 }}>
+              <CartesianGrid vertical={false} />
+              <XAxis
+                dataKey="quarter"
+                tickLine={false}
+                tickMargin={10}
+                axisLine={false}
               />
-            </Bar>
-          </BarChart>
+              <ChartTooltip
+                cursor={false}
+                content={<ChartTooltipContent hideLabel />}
+              />
+              <Bar dataKey="mttr" fill="var(--color-mttr)" radius={8}>
+                <LabelList
+                  position="top"
+                  offset={12}
+                  className="fill-foreground"
+                  fontSize={12}
+                />
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
         </ChartContainer>
       </CardContent>
     </Card>

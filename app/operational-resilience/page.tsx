@@ -20,7 +20,7 @@ export default async function HomePage() {
   return (
     <>
       <PageHeader breadcrumb={[{ title: "Operational Resilience" }]} />
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-6">
         <IncidentsTable
           data={incidentsData?.incidents}
           columns={incidentsColumns}
