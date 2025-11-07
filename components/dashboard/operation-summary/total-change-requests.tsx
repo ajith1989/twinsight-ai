@@ -20,7 +20,7 @@ export default function TotalChangeRequests() {
       <CardHeader>
         <CardDescription>Total Change Requests</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          232
+          55
         </CardTitle>
         <CardAction>
           <Tooltip>

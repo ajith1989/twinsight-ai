@@ -18,7 +18,7 @@ export default function RiskPredictionAccuracy() {
       <CardHeader>
         <CardDescription>Risk Prediction Accuracy</CardDescription>
         <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
-          123
+          80
         </CardTitle>
         <CardAction>
           <Badge variant="outline" className={trendColor}>
