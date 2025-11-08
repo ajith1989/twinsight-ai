@@ -103,7 +103,7 @@ This project uses Azure AI capabilities for model inference, embeddings, semanti
 Add these to your `.env.local` (names are examples — align with `.env.example`):
 
 ```
-# Azure Cognitive Search
+# Azure AI Search
 AZURE_COG_SEARCH_ENDPOINT=your-search-endpoint
 AZURE_COG_SEARCH_API_KEY=your-search-key
 
