@@ -146,7 +146,7 @@ NEXT_PUBLIC_APP_INSIGHTS_KEY=...
 
 #### Agent Orchestration Endpoints
 - `POST /api/v1/twinsightai/agents`
-  - Handles complex incident analysis workflows
+  - Handles complex incident analysis workflows 
   - Streams real-time agent responses and reasoning
   - Expects: `{ incidentNo: string, incidentTitle: string }`
   - Returns: Streaming response of agent actions and outputs
