@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Recommendation } from "@/config/type";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Bot, Sparkles, WandSparkles } from "lucide-react";
+import { WandSparkles } from "lucide-react";
 
 export default function AgentFeedback({
   recommendation,
@@ -16,21 +16,28 @@ export default function AgentFeedback({
     const fullText = recommendation?.recommendation ?? "";
     if (!fullText) return;
 
-    setDisplayText("");
-    let i = 0;
+    let index = 0;
+    let cancelled = false;
+    setDisplayText(""); // reset on new recommendation
 
-    const interval = setInterval(() => {
-      // ✅ Check index before using it
-      if (i >= fullText.length) {
-        clearInterval(interval);
-        return;
+    const typeNext = () => {
+      if (cancelled) return;
+
+      // show string up to current index
+      setDisplayText(fullText.slice(0, index + 1));
+      index += 1;
+
+      if (index < fullText.length) {
+        setTimeout(typeNext, 10); // typing speed
       }
+    };
 
-      setDisplayText((prev) => prev + fullText.charAt(i));
-      i++;
-    }, 10); // ⏱ Adjust typing speed (ms per character)
+    // start typing
+    typeNext();
 
-    return () => clearInterval(interval);
+    return () => {
+      cancelled = true;
+    };
   }, [recommendation?.recommendation]);
 
   return (
