@@ -47,7 +47,7 @@ const data = {
     },
     {
       name: "Incident Forecasts",
-      url: "#",
+      url: "/incident-forecasts",
       icon: AudioWaveform,
     },
     {
